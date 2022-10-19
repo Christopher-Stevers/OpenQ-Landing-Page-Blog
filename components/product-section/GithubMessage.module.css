@@ -1,0 +1,19 @@
+.productSectionGithubMessage:before{
+width: 8px;
+height: 8px;
+position: absolute;
+top: 16px;
+border-left: 1px solid;
+transform: rotate(45deg);
+border-bottom: 1px solid;
+z-index:10;
+display:block;
+content: "";
+left: -5px;
+background-color: #ffffff;
+border-color: #30363d;
+}
+.productSectionGithubMessage.light:before{
+background-color: white;
+border-color: #32a057;
+}

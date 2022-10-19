@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": { "ecmaVersion": 8 },
+  "ignorePatterns": ["node_modules/*", ".next/*", ".out/*", "!.prettierrc.js",  "types.generated.ts"],
+  "extends": ["next/core-web-vitals","eslint:recommended", "prettier"]
+
+  
+}
