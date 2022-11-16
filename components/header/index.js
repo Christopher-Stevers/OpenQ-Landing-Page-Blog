@@ -100,12 +100,12 @@ const Header = ({ pageVersionHookInstance, contest }) => {
 
     window.addEventListener(`scroll`, handleScroll);
     return () => {
-      window.removeEventListener(`scroll`, handleScroll)
+      window.removeEventListener(`scroll`, handleScroll);
     };
   }, []);
 
   return (
-    <header className={tw(`w-full font-lobster bg-dark-mode relative`)}>
+    <header className={tw(`w-full bg-dark-mode relative`)}>
       <div className={tw(``)}>
         <div className={tw(`text-white flex justify-center`)}>
           <div className={tw(`bg-gray-900 gap-2 border border-gray-700 rounded-full p-0.5 xl:my-12 my-8 `)}>

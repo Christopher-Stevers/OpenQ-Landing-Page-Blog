@@ -3,8 +3,9 @@ import { PrismicLink, PrismicProvider } from "@prismicio/react";
 import { PrismicPreview } from "@prismicio/next";
 import '../styles/global.css';
 
+
 import { setup } from 'twind';
-import {tw} from 'twind'
+import { tw } from 'twind';
 import twindConfig from '../twind.config';
 import '@fontsource/inter';
 
@@ -73,13 +74,14 @@ const richTextComponents = {
 };
 
 export default function App({ Component, pageProps }) {
+
   return (
     <PrismicProvider
       linkResolver={linkResolver}
       internalLinkComponent={NextLinkShim}
       richTextComponents={richTextComponents}
     >
-    
+
       <PrismicPreview repositoryName={repositoryName}>
         <Component {...pageProps} />
       </PrismicPreview>
