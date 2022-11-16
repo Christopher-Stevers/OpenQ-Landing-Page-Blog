@@ -2,9 +2,9 @@ import { PrismicLink, PrismicRichText, PrismicText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import { tw } from 'twind';
 
-import { Bounded } from "./Bounded";
-import { Heading } from "./Heading";
-import { HorizontalDivider } from "./HorizontalDivider";
+import { Bounded } from "../Bounded";
+import { Heading } from "../Heading";
+import { HorizontalDivider } from "../HorizontalDivider";
 import { useState } from "react";
 
 const SignUpForm = ({ settings }) => {
@@ -14,9 +14,9 @@ const SignUpForm = ({ settings }) => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("api_key", "JlUKxDNJAmbFF44byOHTNQ");
+      formData.append("api_key", process.env.NEXT_PUBLIC_CONVERTKIT_KEY);
       formData.append("email", email);
-      const response = await fetch('https://api.convertkit.com/v3/forms/3697685/subscribe', {
+      const response = await fetch(`https://api.convertkit.com/v3/forms/${process.env.NEXT_PUBLIC_CONVERTKIT_FORM}/subscribe`, {
         method: "POST",
         body: formData
       });

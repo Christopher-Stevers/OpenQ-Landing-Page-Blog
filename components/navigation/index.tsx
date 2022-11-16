@@ -33,7 +33,7 @@ const links = [
   },
   {
     label: `Blog`,
-    href: `https://medium.com/openqdev`,
+    href: `/blog`,
   },
 ];
 
@@ -91,7 +91,7 @@ const MenuButton = ({  showMenu }: IMenuButton) => (
   </div>
 );
 
-const MobileMenu = () => (
+const MobileMenu = ({lightTheme}) => (
   <div className={tw(`md:hidden`)}>
     <div className={tw(`space-y-1 px-2 pt-2 pb-3 sm:px-3`)}>
       {links.map((link: Link) => (
@@ -99,7 +99,7 @@ const MobileMenu = () => (
           target="_blank"
           rel="noopener noreferrer"
           href={link.href}
-          className={tw(`block px-3 py-2 text-base font-medium text-gray-200`)}
+          className={tw(`block px-3 py-2 text-base font-medium ${!lightTheme && "text-gray-200"} `)}
           key={link.label}
         >
           {link.label}
@@ -115,7 +115,7 @@ const MobileMenu = () => (
             key={`mobile-${link.label}`}
             href={link.href}
             className={tw(
-              `block px-3 py-2 text-base font-medium text-gray-200`
+              `block px-3 py-2 text-base font-medium ${!lightTheme && "text-gray-200"} `
             )}
           >
             {link.label}
@@ -126,7 +126,7 @@ const MobileMenu = () => (
   </div>
 );
 
-const Navigation = () => {
+const Navigation = ({lightTheme}) => {
   const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
     /*  console.log('toggled!'); */
@@ -134,7 +134,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={tw(`bg-dark-mode`)}>
+    <nav className={tw(lightTheme ? "bg-white":`bg-dark-mode`)}>
       <div className={tw(`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`)}>
         <div className={tw(`flex h-24 items-center justify-between`)}>
           <div className={tw(`flex items-center`)}>
@@ -159,7 +159,7 @@ const Navigation = () => {
                     key={link.label}
                     href={link.href}
                     className={tw(
-                      `rounded-md border border-transparent px-3 py-2 font-medium text-gray-200 hover:rounded-2xl hover:border-white hover:text-gray-100`
+                      `rounded-md border border-transparent px-3 py-2 font-medium ${lightTheme ? "font-semibold text-slate-900  hover:bg-white hover:text-black": `bg-gray-900 bg-opacity-10 hover:bg-dark-mode hover:border-white hover:rounded-2xl text-white`}`
                     )}
                   >
                     {link.label}
@@ -169,14 +169,14 @@ const Navigation = () => {
             </div>
           </div>
           <div className={tw(`hidden md:block`)}>
-            <div className={tw(`ml-4 flex items-center md:ml-6`)}>
+            <div className={tw(`ml-4 flex items-center space-x-4 md:ml-6`)}>
               {/* <Button modifier="border-0 mr-2">Contact sales</Button> */}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://docs.openq.dev/"
               >
-                <Button modifier="border-transparent hover:border-white bg-gray-900 bg-opacity-10 hover:bg-dark-mode hover:rounded-2xl text-white mr-5">
+                <Button modifier={ `rounded-md border border-transparent px-3  py-2 font-medium ${lightTheme ? "font-semibold text-slate-900  hover:bg-white hover:text-black ": ` bg-transparent hover:bg-dark-mode hover:border-white hover:rounded-2xl text-[#FFFFFF]`}`}>
                   Docs
                 </Button>
               </a>
@@ -204,7 +204,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      {showMenu ? <MobileMenu /> : null}
+      {showMenu ? <MobileMenu  lightTheme={lightTheme}/> : null}
     </nav>
   );
 };

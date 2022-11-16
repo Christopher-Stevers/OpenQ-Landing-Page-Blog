@@ -58,7 +58,7 @@ const CardGroup = ({ data, internalMenu, contest }) => {
       <div className={tw(`flex justify-center`)}>
         <div
           className={tw(
-            `flex flex-col lg:flex-row lg:space-x-10 justify-center pt-16 mx-auto lg:mx-80 text-left max-w-7xl             
+            `flex flex-col lg:flex-row lg:space-x-10 justify-center pt-16 mx-auto 2xl:mx-80 lg:mx-20 text-left max-w-7xl             
           `
           )}
         >

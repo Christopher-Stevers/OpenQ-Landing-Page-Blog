@@ -2,7 +2,7 @@
 
 import { tw } from 'twind';
 
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 
 import Navigation from '../components/navigation';
 

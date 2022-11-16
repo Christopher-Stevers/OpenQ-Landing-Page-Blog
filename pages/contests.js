@@ -5,7 +5,7 @@ import { tw } from 'twind';
 import Header from '../components/header';
 import ProductSection from '../components/product-section';
 import CardGroup from '../components/card-group';
-import Footer from '../components/footer';
+import Footer from '../components/Footer';
 import Wave from 'react-wavify';
 import Navigation from '../components/navigation';
 import { useState, useEffect } from 'react';
